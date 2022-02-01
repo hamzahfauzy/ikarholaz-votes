@@ -40,6 +40,18 @@ CREATE TABLE periods (
     status VARCHAR(100) NOT NULL DEFAULT "Tidak Aktif"
 );
 
+CREATE TABLE electors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    period_id INT NOT NULL,
+    NRA VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    graduation_year VARCHAR(4) NOT NULL,
+    verificated_by VARCHAR(100) NOT NULL,
+    registered_at DATE NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_electors_period_id FOREIGN KEY (period_id) REFERENCES periods(id) ON DELETE CASCADE
+);
+
 CREATE TABLE candidates (
     id INT AUTO_INCREMENT PRIMARY KEY,
     period_id INT NOT NULL,

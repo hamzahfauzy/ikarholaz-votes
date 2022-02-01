@@ -27,6 +27,11 @@ if(!$installation && $route != "installation")
     die();
 }
 
+if(startWith($route,'public'))
+{
+    return true;
+}
+
 if(startWith($route,'voters'))
 {
     if(!Session::get('voter'))

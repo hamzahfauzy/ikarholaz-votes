@@ -4,7 +4,7 @@ return [
     'dashboard' => 'default/index',
     'periode'   => 'periods/index',
     'kandidat'  => 'candidates/index',
-    // 'dpt'       => 'members/index',
+    'dpt'       => 'electors/index',
     // 'laporan'   => 'reports/index',
     'pengguna'  => [
         'semua pengguna' => 'users/index',

@@ -51,6 +51,34 @@
                     </div>
                 </div>
             </div>
+            <div class="row row-card-no-pd">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive table-hover table-sales">
+                                <h1>DPT</h1>
+                                <p>Untuk mengapprove DPT silahkan ke menu <a href="index.php?r=electors/index">ini</a></p>
+                                <p></p>
+                                <table class="table datatable">
+                                    <thead>
+                                        <tr>
+                                            <th width="20px">#</th>
+                                            <th>Nama</th>
+                                            <th>Alumni</th>
+                                            <th>NRA</th>
+                                            <th>Registrasi</th>
+                                            <th>Approve</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <?php load_templates('layouts/bottom') ?>

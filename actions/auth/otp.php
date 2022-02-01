@@ -12,16 +12,17 @@ if(request() == 'GET' && !$nra)
 if(request() == 'POST')
 {
     $uri = config('api_url');
-    $response = simple_curl($uri . '/mobile/verify-otp-nra','POST','NRA='.$_POST['NRA'].'&OTP='.$_POST['OTP']);
+    $post = http_build_query($_POST);
+    $response = simple_curl($uri . '/mobile/verify-otp-nra','POST',$post);
     $data = json_decode($response['content'],1);
     if(isset($data['data']))
     {
         Session::set(['voter' => $data['data']]);
-        header('location:index.php?r=voters/index');
+        // header('location:index.php?r=voters/index');
+        echo json_encode(['status'=>'success', 'response' => $data]);
         die();
     }
-    set_flash_msg(['error'=>'Gagal! OTP Tidak Valid','NRA' => $_POST['NRA']]);
-    header('location:index.php?r=auth/otp');
+    echo json_encode(['status'=>'fail', 'response' => $data]);
     die();
 }
 
