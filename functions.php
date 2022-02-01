@@ -335,7 +335,7 @@ function simple_curl($uri, $method='GET', $data=null, $curl_headers=array(), $cu
 		CURLOPT_SSL_VERIFYPEER => false,
 		CURLOPT_HEADER => true,
 		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_TIMEOUT => 3,
+		CURLOPT_TIMEOUT => 1000,
 	);
 	$default_headers = array();
 
