@@ -36,7 +36,7 @@
                 <div class="card full-height <?=!empty($display) && $display == 'NRA' ? 'd-none' : ''?>" id="form-admin">
                     <div class="card-body">
                         <center>
-                            <img src="assets/img/main-logo.png" width="150px" height="100px" alt="logo" style="object-fit:cover;">
+                            <img src="assets/img/logo_me.png" width="150px" height="100px" alt="logo" style="object-fit:cover;">
                         </center>
                         <div class="card-title text-center">Login Form</div>
                         <div class="card-category text-center">Masukkan Username dan Password anda pada bidang di bawah ini.</div>
