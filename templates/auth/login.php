@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Masuk</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/main-logo.png" type="image/x-icon"/>
+	<link rel="icon" href="assets/img/logo_me.png" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -34,9 +34,9 @@
                 <div class="alert alert-danger"><?=$error_msg?></div>
                 <?php endif ?>
                 <div class="card full-height <?=!empty($display) && $display == 'NRA' ? 'd-none' : ''?>" id="form-admin">
-                    <div class="card-body">
+                    <div class="card-body" style="background:#c9e4f2">
                         <center>
-                            <img src="assets/img/logo_me.png" width="150px" height="100px" alt="logo" style="object-fit:cover;">
+                            <img src="assets/img/logo_me.png" width="150px" height="50" alt="logo" style="object-fit: fill;">
                         </center>
                         <div class="card-title text-center">Login Form</div>
                         <div class="card-category text-center">Masukkan Username dan Password anda pada bidang di bawah ini.</div>
