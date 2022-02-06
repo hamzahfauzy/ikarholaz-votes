@@ -43,7 +43,7 @@ if(startWith($route,'voters'))
 }
 
 $auth = auth();
-if(!isset($auth->user) && !in_array($route, ['auth/login','installation','auth/otp']))
+if(!isset($auth->user) && !in_array($route, ['auth/login','auth/login-admin','installation','auth/otp']))
 {
     header("location:index.php?r=auth/login");
     die();
