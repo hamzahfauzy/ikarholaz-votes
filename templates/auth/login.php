@@ -34,7 +34,7 @@
                 <div class="alert alert-danger"><?=$error_msg?></div>
                 <?php endif ?>
                 <div class="card full-height <?=!empty($display) && $display == 'NRA' ? 'd-none' : ''?>" id="form-admin">
-                    <div class="card-body" style="background:#c9e4f2">
+                    <div class="card-body">
                         <center>
                             <img src="assets/img/logo-munas-transparant.png" width="150px" height="50" alt="logo" style="object-fit: fill;">
                         </center>
