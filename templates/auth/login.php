@@ -33,7 +33,7 @@
                 <?php if($error_msg): ?>
                 <div class="alert alert-danger"><?=$error_msg?></div>
                 <?php endif ?>
-                <div class="card full-height <?=!empty($display) && $display == 'NRA' ? 'd-none' : ''?>" id="form-admin">
+                <div class="card full-height d-none" id="form-admin">
                     <div class="card-body">
                         <center>
                             <img src="assets/img/logo-munas-transparant.png" width="150px" height="50" alt="logo" style="object-fit: fill;">
@@ -55,10 +55,10 @@
                     </div>
                 </div>
 
-                <div class="card full-height <?=!empty($display) && $display == 'NRA' ? '' : 'd-none'?>" id="form-voters">
+                <div class="card full-height" id="form-voters">
                     <div class="card-body">
                         <center>
-                            <img src="assets/img/logo-munas-transparant.png" width="150px" height="100px" alt="logo" style="object-fit:cover;">
+                            <img src="assets/img/logo-munas-transparant.png" width="150px" height="50" alt="logo" style="object-fit: fill;">
                         </center>
                         <div class="card-title text-center">Login Form</div>
                         <div class="card-category text-center">Masukkan NRA anda.</div>
@@ -98,6 +98,9 @@ const auth = firebaseauth.getAuth();
 
 var adminForm = document.querySelector('#form-admin')
 var votersForm = document.querySelector('#form-voters')
+
+initRecaptcha()
+
 function showVoters()
 {
     adminForm.classList.add('d-none')
@@ -190,7 +193,7 @@ async function login(){
     }
 }
 
-function handleOtp()
+function handleOTP()
 {
     var postedData = JSON.parse(localStorage.getItem("postData"))
     var btn_otp = document.querySelector('.btn-otp')
@@ -210,7 +213,7 @@ function handleOtp()
             .then(res => {
                 if(res.status == 'success')
                 {
-                    window.location = 'index.php'
+                    window.location = 'index.php?r=voters/index'
                 }
                 else
                 {
