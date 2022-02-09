@@ -26,7 +26,7 @@
 	<div class="container">
         <div class="row mt-4">
             <div class="col-12 text-center">
-                <h2>Pilih Kandidat Jagoan Anda</h2>
+                <h2>Pilih Kandidat Anda</h2>
             </div>
             <?php foreach($candidates as $candidate): ?>
             <div class="col-12 col-sm-3">

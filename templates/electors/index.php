@@ -30,6 +30,7 @@
                                             <th>Alumni</th>
                                             <th>NRA</th>
                                             <th>Register</th>
+                                            <th>Tgl. Approve</th>
                                             <th>Status</th>
                                             <th class="text-right">
                                             </th>
@@ -43,6 +44,7 @@
                                             <td><?=$d->graduation_year?></td>
                                             <td><?=$d->NRA?></td>
                                             <td><?=$d->registered_at?></td>
+                                            <td><?=$d->created_at?></td>
                                             <td>
                                                 <?php if(in_array($d->NRA,$votes)): ?>
                                                 <span class="badge badge-success">Sudah Vote</span>

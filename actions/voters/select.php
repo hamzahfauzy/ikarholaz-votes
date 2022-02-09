@@ -9,16 +9,18 @@ $period = $db->single('periods',[
 
 if($period)
 {
+    $NRA = auth()->user->NRA;
     $vote = $db->single('votes',[
         'period_id' => $period->id,
-        'NRA' => auth()->user->NRA
+        'NRA' => $NRA
     ]);
 
     if(empty($vote))
     {
+        
         $db->insert('votes',[
             'period_id' => $period->id,
-            'NRA' => auth()->user->NRA,
+            'NRA' => $NRA,
             'candidate_id' => $_GET['id'],
         ]);
 
@@ -32,7 +34,7 @@ if($period)
 
         $uri = config('api_url');
         $postdata = array_merge((array) $elector, [
-            'period'=>$period->year,
+            'period' => $period->year,
             'candidate_name' => $candidate->name
         ]);
         simple_curl($uri . '/send-pdf','POST',$postdata);
