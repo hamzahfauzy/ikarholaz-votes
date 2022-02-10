@@ -3,13 +3,21 @@
 $conn = conn();
 $db   = new Database($conn);
 
+$NRA = auth()->user->NRA;
+$elector = [];
+
 $period = $db->single('periods',[
     'status' => 'Aktif'
 ]);
 
 if($period)
+$elector = $db->single('electors',[
+    'period_id' => $period->id,
+    'NRA' => $NRA
+]);
+
+if($period && $elector)
 {
-    $NRA = auth()->user->NRA;
     $vote = $db->single('votes',[
         'period_id' => $period->id,
         'NRA' => $NRA
@@ -26,10 +34,6 @@ if($period)
 
         $candidate = $db->single('candidates',[
             'id' => $_GET['id']
-        ]);
-
-        $elector = $db->single('electors',[
-            'NRA' => $NRA
         ]);
 
         $uri = config('api_url');

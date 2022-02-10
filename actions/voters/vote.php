@@ -3,11 +3,21 @@
 $conn = conn();
 $db   = new Database($conn);
 
+$NRA = auth()->user->NRA;
+$elector = [];
+
 $period = $db->single('periods',[
     'status' => 'Aktif'
 ]);
 
-if(empty($period))
+if($period)
+$elector = $db->single('electors',[
+    'period_id' => $period->id,
+    'NRA' => $NRA
+]);
+
+
+if(empty($period) || empty($elector))
 {
     header('location:index.php?r=voters/index');
     die();

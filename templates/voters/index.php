@@ -48,6 +48,10 @@
                         <center>
                             <?php 
                             if($period): 
+                                if(empty($elector))
+                                {
+                                    echo '<span class="alert alert-danger">NRA anda belum di verifikasi untuk periode '.$period->name.'</span><br>';
+                                }
                                 if(empty($vote)):
                             ?>   
                             <a href="index.php?r=voters/vote" class="btn btn-success">Mulai Voting</a>
