@@ -29,7 +29,10 @@ if($period)
             'period'=>$period->year,
             'candidate_name' => $candidate->name
         ]);
-        simple_curl($uri . '/send-pdf','POST',$postdata);
+
+        $postdata = http_build_query($postdata);
+
+        $response = simple_curl($uri . '/send-pdf','POST',$postdata);
 
         set_flash_msg(['success'=>'PDF Sudah dikirim ulang.']);
         header('location:index.php?r=electors/index');

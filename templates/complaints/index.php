@@ -4,11 +4,11 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">DPT</h2>
-                        <h5 class="text-white op-7 mb-2">Memanajemen data DPT</h5>
+                        <h2 class="text-white pb-2 fw-bold">Pengaduan</h2>
+                        <h5 class="text-white op-7 mb-2">Memanajemen data pengaduan voting</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                    <a href="index.php?r=electors/verification" class="btn btn-secondary btn-round">Verifikasi DPT</a>
+                        <a href="index.php?r=complaints/create" class="btn btn-secondary btn-round">Buat Pengaduan</a>
                     </div>
                 </div>
             </div>
@@ -27,11 +27,9 @@
                                         <tr>
                                             <th width="20px">#</th>
                                             <th>Nama</th>
-                                            <th>Alumni</th>
                                             <th>NRA</th>
-                                            <th>Register</th>
-                                            <th>Tgl. Approve</th>
-                                            <th>Status</th>
+                                            <th>Kandidat</th>
+                                            <th>Alasan</th>
                                             <th class="text-right">
                                             </th>
                                         </tr>
@@ -39,29 +37,27 @@
                                     <tbody>
                                         <?php 
                                         $role = get_role(auth()->user->id);
-                                        foreach($datas as $index => $d): 
-                                        ?>
+                                        foreach($datas as $index => $data): ?>
                                         <tr>
-                                            <td><?=$index+1?></td>
-                                            <td><?=$d->name?></td>
-                                            <td><?=$d->graduation_year?></td>
-                                            <td><?=$d->NRA?></td>
-                                            <td><?=$d->registered_at?></td>
-                                            <td><?=$d->created_at?></td>
                                             <td>
-                                                <?php if(isset($votes[$d->NRA])): ?>
-                                                <span class="badge badge-success">Sudah Vote</span>
-                                                <br>
-                                                <a href="index.php?r=electors/resend-pdf&id=<?=$d->id?>">Resend PDF</a>
-                                                <?php if($role->name == 'administrator'): ?>
-                                                <a href="index.php?r=electors/download-pdf&id=<?=$d->id?>">Download PDF</a>
-                                                <?php endif ?>
-                                                <?php else: ?>
-                                                <span class="badge badge-danger">Belum Vote</span>
-                                                <?php endif ?>
+                                                <?=$index+1?>
                                             </td>
+                                            <td><?=$data->name?></td>
+                                            <td><?=$data->NRA?></td>
+                                            <td><?=$data->candidate_name?></td>
+                                            <td><?=$data->description?></td>
                                             <td>
-                                                <a href="index.php?r=electors/delete&id=<?=$d->id?>" class="btn btn-warning btn-sm">Un Verified</a>
+                                                <?php if($role->name == 'administrator'): ?>
+                                                    <?php if($data->status): ?>
+                                                        <?= $data->status?>
+                                                    <?php else: ?>
+                                                        <a href="index.php?r=complaints/verified&status=approve&id=<?=$data->id?>" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
+                                                        <a href="index.php?r=complaints/verified&status=reject&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
+                                                    <?php endif ?>
+                                                <?php else: ?>
+                                                    <a href="index.php?r=complaints/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                                    <a href="index.php?r=complaints/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <?php endif ?>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>

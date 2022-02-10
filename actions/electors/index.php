@@ -20,6 +20,6 @@ if($period)
 
 return [
     'datas' => $data,
-    'votes' => $votes,
+    'votes' => $_votes,
     'success_msg' => $success_msg
 ];

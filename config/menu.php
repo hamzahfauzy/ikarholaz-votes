@@ -5,7 +5,7 @@ return [
     'periode'   => 'periods/index',
     'kandidat'  => 'candidates/index',
     'dpt'       => 'electors/index',
-    // 'laporan'   => 'reports/index',
+    'pengaduan' => 'complaints/index',
     'pengguna'  => [
         'semua pengguna' => 'users/index',
         'roles' => 'roles/index'

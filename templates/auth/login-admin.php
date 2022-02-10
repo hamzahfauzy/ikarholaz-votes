@@ -48,8 +48,6 @@
                                 <label for="">Kata Sandi</label>
                                 <input type="password" name="password" id="" class="form-control mb-2" placeholder="Kata Sandi Disini...">
                                 <button class="btn btn-primary btn-block btn-round">Masuk</button>
-                                <br>
-                                <p align="center">Jika anda voters Klik <a href="index.php?r=auth/login">Disini</a> untuk login sebagai voters.</p>
                             </div>
                         </form>
                     </div>

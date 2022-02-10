@@ -49,7 +49,7 @@
                                 <input type="password" name="password" id="" class="form-control mb-2" placeholder="Kata Sandi Disini...">
                                 <button class="btn btn-primary btn-block btn-round">Masuk</button>
                                 <br>
-                                <p align="center">Jika anda voters Klik <a href="javascript:void(0)" onclick="showVoters()">Disini</a> untuk login sebagai voters.</p>
+                                <!-- <p align="center">Jika anda voters Klik <a href="javascript:void(0)" onclick="showVoters()">Disini</a> untuk login sebagai voters.</p> -->
                             </div>
                         </form>
                     </div>
@@ -70,13 +70,13 @@
                                 <!-- <button class="btn btn-primary btn-block btn-round">Request OTP</button> -->
                             </div>
                             <div class="form-group" id="recaptcha-container"></div>
-                            <p align="center">Jika anda admin atau pengawas Klik <a href="javascript:void(0)" onclick="showAdmin()">Disini</a> untuk login sebagai admin atau pengawas.</p>
+                            <!-- <p align="center">Jika anda admin atau pengawas Klik <a href="javascript:void(0)" onclick="showAdmin()">Disini</a> untuk login sebagai admin atau pengawas.</p> -->
                         </form>
 
                         <form id="form-otp" action="" method="post" onsubmit="return false" style="display:none">
                             <div class="form-group">
                                 <label for="">OTP</label>
-                                <input type="text" name="OTP" id="" class="form-control mb-2" placeholder="OTP Disini...">
+                                <input type="text" pattern="\d*" maxlength="6" name="OTP" id="" class="form-control mb-2" placeholder="OTP Disini...">
                                 <button class="btn btn-primary btn-block btn-round btn-otp" onclick="handleOTP()">Verifikasi OTP</button>
                                 <br>
                                 <p align="center">Jika anda admin atau pengawas Klik <a href="javascript:void(0)" onclick="showAdmin()">Disini</a> untuk login sebagai admin atau pengawas.</p>

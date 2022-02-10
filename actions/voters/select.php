@@ -37,6 +37,9 @@ if($period)
             'period' => $period->year,
             'candidate_name' => $candidate->name
         ]);
+
+        $postdata = http_build_query($postdata);
+
         simple_curl($uri . '/send-pdf','POST',$postdata);
 
         set_flash_msg(['success'=>'Selamat! Voting anda sudah masuk ke dalam kotak suara']);
