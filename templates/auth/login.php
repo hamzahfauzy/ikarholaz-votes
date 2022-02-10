@@ -78,8 +78,6 @@
                                 <label for="">OTP</label>
                                 <input type="text" pattern="\d*" maxlength="6" name="OTP" id="" class="form-control mb-2" placeholder="OTP Disini...">
                                 <button class="btn btn-primary btn-block btn-round btn-otp" onclick="handleOTP()">Verifikasi OTP</button>
-                                <br>
-                                <p align="center">Jika anda admin atau pengawas Klik <a href="javascript:void(0)" onclick="showAdmin()">Disini</a> untuk login sebagai admin atau pengawas.</p>
                             </div>
                         </form>
                     </div>

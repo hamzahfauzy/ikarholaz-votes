@@ -38,7 +38,7 @@
                         <h1 class="text-center">eVote Application</h1>
                         <div class="card-title text-center">Selamat Datang</div>
                         <center>
-                            <img src="assets/img/user-placeholder.png" height="150px" alt="logo" style="object-fit:cover;">
+                            <img src="<?= auth()->user->profile_pic ? config('profile_url') . '/' .auth()->user->profile_pic : 'assets/img/user-placeholder.png' ?>" height="150px" alt="logo" style="object-fit:cover;">
                         </center>
                         <div class="card-category text-center">
                             <?=auth()->user->name?><br>

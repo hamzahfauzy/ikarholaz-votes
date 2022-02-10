@@ -54,7 +54,7 @@
                                                 <br>
                                                 <a href="index.php?r=electors/resend-pdf&id=<?=$d->id?>">Resend PDF</a>
                                                 <?php if($role->name == 'administrator'): ?>
-                                                <a href="index.php?r=electors/download-pdf&id=<?=$d->id?>">Download PDF</a>
+                                                <a href="index.php?r=electors/download-pdf&id=<?=$d->id?>" target="_blank">Download PDF</a>
                                                 <?php endif ?>
                                                 <?php else: ?>
                                                 <span class="badge badge-danger">Belum Vote</span>
