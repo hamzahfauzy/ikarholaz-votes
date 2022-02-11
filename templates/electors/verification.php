@@ -21,6 +21,7 @@
                             <div class="alert alert-success"><?=$success_msg?></div>
                             <?php endif ?>
                             <div class="table-responsive table-hover table-sales">
+                                <button class="btn btn-success btn-sm" onclick="selectAll()">Select All</button>
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
@@ -36,13 +37,13 @@
                                     <tbody>
                                         <?php foreach($datas as $index => $d): ?>
                                         <tr>
-                                            <td><?=$index+1?></td>
+                                            <td><input type="checkbox" class="checkbox" name="check[]" value="<?=$d->id?>"></td>
                                             <td><?=$d->name?></td>
                                             <td><?=$d->graduation_year?></td>
                                             <td><?=$d->NRA?></td>
                                             <td><?=$d->tanggal?></td>
                                             <td>
-                                                <a href="index.php?r=electors/verificate&id=<?=$d->id?>" class="btn btn-success">Verifikasi</a>
+                                                <a href="index.php?r=electors/verificate&id[]=<?=$d->id?>" class="btn btn-success">Verifikasi</a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>
@@ -55,4 +56,12 @@
             </div>
         </div>
     </div>
+    <script>
+    function selectAll()
+    {
+        document.querySeletorAll('.checkbox').forEach(el => {
+            el.checked = true
+        })
+    }
+    </script>
 <?php load_templates('layouts/bottom') ?>

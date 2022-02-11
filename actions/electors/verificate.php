@@ -9,19 +9,24 @@ $data = [];
 if($period)
 {
     // $data = $db->all('electors',['period_id'=>$period->id]);
+    $id  = http_build_query($id);
     $uri = config('api_url');
-    $response = simple_curl($uri . '/mobile/admin/alumni/'.$id,'GET');
+    $response = simple_curl($uri . '/mobile/admin/alumni?'.$id,'GET');
     $data = json_decode($response['content']);
     $data = $data->data;
 
-    $db->insert('electors',[
-        'period_id' => $period->id,
-        'NRA' => $data->NRA,
-        'name' => $data->name,
-        'graduation_year' => $data->graduation_year,
-        'verificated_by' => auth()->user->name,
-        'registered_at' => $data->tanggal,
-    ]);
+    foreach($data as $alumni)
+    {
+        $db->insert('electors',[
+            'period_id' => $period->id,
+            'NRA' => $alumni->NRA,
+            'name' => $alumni->name,
+            'graduation_year' => $alumni->graduation_year,
+            'verificated_by' => auth()->user->name,
+            'registered_at' => $alumni->tanggal,
+        ]);
+    }
+
 
     set_flash_msg(['success'=>'DPT berhasil diverifikasi']);
     header('location:index.php?r=electors/index');
