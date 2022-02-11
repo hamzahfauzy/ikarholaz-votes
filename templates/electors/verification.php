@@ -22,6 +22,7 @@
                             <?php endif ?>
                             <div class="table-responsive table-hover table-sales">
                                 <button class="btn btn-success btn-sm" onclick="selectAll()">Select All</button>
+                                <button class="btn btn-primary btn-sm" onclick="verifiedSelected()">Verifikasi yang Terpilih</button>
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
@@ -49,6 +50,7 @@
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                <button class="btn btn-primary btn-sm" onclick="verifiedSelected()">Verifikasi yang Terpilih</button>
                             </div>
                         </div>
                     </div>
@@ -62,6 +64,17 @@
         document.querySeletorAll('.checkbox').forEach(el => {
             el.checked = true
         })
+    }
+    function verifiedSelected()
+    {
+        var query_string = ""
+        var checkedBoxes = document.querySelectorAll('input.checkbox:checked');
+        for(i=0;i<checkBoxes.length;i++)
+        {
+            query_string += "id[]="+checkBoxes[i].value+"&"
+        }
+
+        window.location = "index.php?r=electors/verificate&" + query_string
     }
     </script>
 <?php load_templates('layouts/bottom') ?>
