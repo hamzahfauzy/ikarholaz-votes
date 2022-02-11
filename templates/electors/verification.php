@@ -50,6 +50,7 @@
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                <button class="btn btn-success btn-sm" onclick="selectAll()">Select All</button>
                                 <button class="btn btn-primary btn-sm" onclick="verifiedSelected()">Verifikasi yang Terpilih</button>
                             </div>
                         </div>
@@ -61,7 +62,7 @@
     <script>
     function selectAll()
     {
-        document.querySeletorAll('.checkbox').forEach(el => {
+        document.querySelectorAll('.checkbox').forEach(el => {
             el.checked = true
         })
     }
@@ -69,9 +70,9 @@
     {
         var query_string = ""
         var checkedBoxes = document.querySelectorAll('input.checkbox:checked');
-        for(i=0;i<checkBoxes.length;i++)
+        for(i=0;i<checkedBoxes.length;i++)
         {
-            query_string += "id[]="+checkBoxes[i].value+"&"
+            query_string += "id[]="+checkedBoxes[i].value+"&"
         }
 
         window.location = "index.php?r=electors/verificate&" + query_string
