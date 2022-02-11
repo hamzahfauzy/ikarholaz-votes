@@ -11,11 +11,20 @@ if($period)
     $all_electors = $db->all('electors',['period_id'=>$period->id]);
     $all_electors = (array) $all_electors;
     $ids = array_column($all_electors, 'NRA');
-    $ids = implode(',',$ids);
     $uri = config('api_url');
-    $response = simple_curl($uri . '/mobile/admin/alumni?nras='.$ids,'GET');
+    $response = simple_curl($uri . '/mobile/admin/alumni','GET');
     $data = json_decode($response['content']);
-    $data = $data->data;
+    if($data)
+    {
+        $data = $data->data;
+        foreach($data as $key => $value)
+        {
+            if(in_array($value->NRA,$ids))
+            {
+                unset($data[$key]);
+            }
+        }
+    }
 }
 // $data = $db->all('periods');
 
