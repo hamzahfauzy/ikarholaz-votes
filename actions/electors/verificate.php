@@ -9,14 +9,15 @@ $data = [];
 if($period)
 {
     // $data = $db->all('electors',['period_id'=>$period->id]);
-    $id  = http_build_query($id);
+    // $id  = http_build_query($id);
     $uri = config('api_url');
-    $response = simple_curl($uri . '/mobile/admin/alumni?'.$id,'GET');
+    $response = simple_curl($uri . '/mobile/admin/alumni','GET');
     $data = json_decode($response['content']);
     $data = $data->data;
 
     foreach($data as $alumni)
     {
+        if(in_array($alumni->NRA,$id))
         $db->insert('electors',[
             'period_id' => $period->id,
             'NRA' => $alumni->NRA,
