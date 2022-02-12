@@ -22,7 +22,7 @@ if($period)
             $db->insert('electors',[
                 'period_id' => $period->id,
                 'NRA' => $alumni->NRA,
-                'name' => $alumni->name,
+                'name' => addslashes($alumni->name),
                 'graduation_year' => $alumni->graduation_year,
                 'verificated_by' => auth()->user->name,
                 'registered_at' => $alumni->tanggal,
