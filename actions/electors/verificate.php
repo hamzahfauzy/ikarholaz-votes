@@ -17,15 +17,17 @@ if($period)
 
     foreach($data as $alumni)
     {
-        if(in_array($alumni->NRA,$id))
-        $db->insert('electors',[
-            'period_id' => $period->id,
-            'NRA' => $alumni->NRA,
-            'name' => $alumni->name,
-            'graduation_year' => $alumni->graduation_year,
-            'verificated_by' => auth()->user->name,
-            'registered_at' => $alumni->tanggal,
-        ]);
+        if(in_array($alumni->id,$id))
+        {
+            $db->insert('electors',[
+                'period_id' => $period->id,
+                'NRA' => $alumni->NRA,
+                'name' => $alumni->name,
+                'graduation_year' => $alumni->graduation_year,
+                'verificated_by' => auth()->user->name,
+                'registered_at' => $alumni->tanggal,
+            ]);
+        }
     }
 
 
