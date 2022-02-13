@@ -26,7 +26,7 @@ if($period && $elector)
     if(empty($vote))
     {
         
-        $db->insert('votes',[
+        $vote = $db->insert('votes',[
             'period_id' => $period->id,
             'NRA' => $NRA,
             'candidate_id' => $_GET['id'],
@@ -39,6 +39,7 @@ if($period && $elector)
         $uri = config('api_url');
         $postdata = array_merge((array) $elector, [
             'period' => $period->year,
+            'no_urut' => $vote->id,
             'candidate_name' => $candidate->name
         ]);
 

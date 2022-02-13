@@ -27,6 +27,7 @@ if($period)
         $uri = config('api_url');
         $postdata = array_merge((array) $elector, [
             'period'=>$period->year,
+            'no_urut'=>$vote->id,
             'candidate_name' => $candidate->name
         ]);
 
