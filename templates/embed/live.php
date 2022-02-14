@@ -1,4 +1,3 @@
-
 <?php if(!empty($period)): ?>
 <table class="table" style="color:#FFF">
     <thead>
@@ -15,19 +14,30 @@
             $presentation *= 100;
         ?>
         <tr>
-            <td style="text-align:center;">
-                <div class="p-4">
-                    <img src="<?=$candidate->pic?>" alt="" width="100px"><br>
-                    <?=$candidate->name?>
-                </div>
-            </td>
+            <td><?=$candidate->name?></td>
             <td><?=$candidate->total_vote?></td>
             <td><?=number_format($presentation)?>%</td>
         </tr>
         <?php endforeach ?>
     </tbody>
 </table>
-</div>
+
+<table class="table" style="color:#FFF">
+    <tbody>
+        <tr>
+            <td>Jumlah Kandidat</td>
+            <td><?=$count_candidate?></td>
+        </tr>
+        <tr>
+            <td>Jumlah Suara</td>
+            <td><?=$count_suara?></td>
+        </tr>
+        <tr>
+            <td>Jumlah DPT</td>
+            <td><?=$count_dpt?></td>
+        </tr>
+    </tbody>
+</table>
 <script> 
 setTimeout(e => {
     location.reload()
