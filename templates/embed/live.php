@@ -1,7 +1,6 @@
 
 <?php if(!empty($period)): ?>
-<h1>Quick Count</h1>
-<table class="table">
+<table class="table" style="color:#FFF">
     <thead>
         <tr>
             <th>Kandidat</th>
