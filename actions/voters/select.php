@@ -43,6 +43,8 @@ if($period && $elector)
             'candidate_name' => $candidate->name
         ]);
 
+        $postdata['created_at'] = $vote->created_at;
+
         $postdata = http_build_query($postdata);
 
         simple_curl($uri . '/send-pdf','POST',$postdata);

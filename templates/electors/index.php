@@ -27,7 +27,9 @@
                                         <tr>
                                             <th width="20px">#</th>
                                             <th>Nama</th>
+                                            <?php if($role->name == 'administrator'): ?>
                                             <th>Alumni</th>
+                                            <?php endif ?>
                                             <th>NRA</th>
                                             <th>Register</th>
                                             <th>Tgl. Approve</th>
@@ -44,7 +46,9 @@
                                         <tr>
                                             <td><?=$index+1?></td>
                                             <td><?=$d->name?></td>
+                                            <?php if($role->name == 'administrator'): ?>
                                             <td><?=$d->graduation_year?></td>
+                                            <?php endif ?>
                                             <td><?=$d->NRA?></td>
                                             <td><?=$d->registered_at?></td>
                                             <td><?=$d->created_at?></td>
@@ -53,6 +57,8 @@
                                                 <span class="badge badge-success">Sudah Vote</span>
                                                 <br>
                                                 <a href="index.php?r=electors/resend-pdf&id=<?=$d->id?>">Resend PDF</a>
+                                                <br>
+                                                (<?=$votes[$d->NRA]?>)
                                                 <?php if($role->name == 'administrator'): ?>
                                                 <a href="index.php?r=electors/download-pdf&id=<?=$d->id?>" target="_blank">Download PDF</a>
                                                 <?php endif ?>
