@@ -24,7 +24,7 @@
 <table class="table" style="color:#FFF">
     <tbody>
         <tr>
-            <td>JUMLAH SUARA</td>
+            <td>SUARA MASUK</td>
             <td><?=$count_suara?></td>
         </tr>
         <tr>
