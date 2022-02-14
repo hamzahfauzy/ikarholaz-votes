@@ -16,6 +16,8 @@ if(startWith($route,'api'))
     header("Content-Type: application/json");
 }
 
+if($route == 'embed/live') return true;
+
 // check if installation is exists
 $conn  = conn();
 $db    = new Database($conn);
