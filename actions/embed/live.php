@@ -3,7 +3,7 @@
 $conn = conn();
 $db   = new Database($conn);
 
-$period = $db->single('periods',['status'=>'Aktif']);
+$period = $db->single('periods');
 $count_candidate = 0;
 $count_suara = 0;
 $count_dpt = 0;
