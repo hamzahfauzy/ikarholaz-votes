@@ -1,4 +1,5 @@
 <?php load_templates('layouts/top') ?>
+<?php $role = get_role(auth()->user->id); ?>
     <div class="content">
         <div class="panel-header bg-primary-gradient">
             <div class="page-inner py-5">
@@ -39,10 +40,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
-                                        $role = get_role(auth()->user->id);
-                                        foreach($datas as $index => $d): 
-                                        ?>
+                                        <?php foreach($datas as $index => $d): ?>
                                         <tr>
                                             <td><?=$index+1?></td>
                                             <td><?=$d->name?></td>
