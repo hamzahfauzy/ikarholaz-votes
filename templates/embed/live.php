@@ -29,6 +29,10 @@
         </tr>
         <tr>
             <td>UPDATE DPT</td>
+            <td><?=$count_dpt?></td>
+        </tr>
+        <tr>
+            <td>UPDATE ALUMNI TERDAFTAR</td>
             <td><span id="updatedpt"></span></td>
         </tr>
     </tbody>
