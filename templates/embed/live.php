@@ -74,7 +74,7 @@ function sortTable() {
 }
 
 sortTable();
-fetch('<?=config('api_url')?>/mobile/dpt').then(res => res.text()).then(res => {
+fetch('<?=config('api_url')?>/mobile/dpt?all').then(res => res.text()).then(res => {
     document.querySelector('#updatedpt').innerHTML = res
 })
 </script>
