@@ -50,7 +50,7 @@
                             if($period): 
                                 if(empty($elector))
                                 {
-                                    echo '<span class="alert alert-danger">NRA anda belum di verifikasi untuk periode '.$period->name.'</span><br>';
+                                    echo '<div class="d-block"><span class="alert alert-danger">NRA anda belum di verifikasi untuk periode '.$period->name.'</span></div><br>';
                                 }
                                 if(empty($vote)):
                             ?>   
