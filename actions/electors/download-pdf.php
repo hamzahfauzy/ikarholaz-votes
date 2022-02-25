@@ -30,9 +30,14 @@ if($role->name == 'administrator')
             $uri = config('api_url');
             $postdata = array_merge((array) $elector, [
                 'period'=>$period->year,
+                'no_urut'=>$vote->id,
                 'candidate_name' => $candidate->name
             ]);
+
+            $postdata['created_at'] = $vote->created_at;
+
             $postdata = http_build_query($postdata);
+
             $response = simple_curl($uri . '/download-pdf','POST',$postdata);
             $data = json_decode($response['content']);
             if($data->status)
