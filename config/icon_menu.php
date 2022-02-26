@@ -7,6 +7,7 @@ return [
     'dpt'     => 'fas fa-archive',
     'suara masuk'   => 'fas fa-file',
     'pengaduan'   => 'fas fa-file',
+    'laporan'   => 'fas fa-file',
     'pengguna'  => 'fas fa-users',
     'pengaturan' => 'fas fa-cog'
 ];

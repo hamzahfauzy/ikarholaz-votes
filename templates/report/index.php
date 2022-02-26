@@ -8,6 +8,9 @@
                         <h2 class="text-white pb-2 fw-bold">Suara Masuk</h2>
                         <h5 class="text-white op-7 mb-2">List suara masuk</h5>
                     </div>
+                    <div class="ml-md-auto py-2 py-md-0">
+                        <a href="index.php?r=report/export" class="btn btn-secondary btn-round">Export</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,6 +29,7 @@
                                             <th width="20px">#</th>
                                             <th>NRA</th>
                                             <th>Nama</th>
+                                            <th>Pilihan Caketum</th>
                                             <th>Waktu</th>
                                         </tr>
                                     </thead>
@@ -34,7 +38,8 @@
                                         <tr>
                                             <td><?=$index+1?></td>
                                             <td><?=$d->NRA?></td>
-                                            <td><?=$d->name?></td>
+                                            <td><?=$d->elector_name?></td>
+                                            <td><?=$d->candidate_name?></td>
                                             <td><?=date('d-m-Y H:i',strtotime($d->created_at))?></td>
                                         </tr>
                                         <?php endforeach ?>

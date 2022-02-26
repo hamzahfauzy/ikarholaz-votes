@@ -7,6 +7,7 @@ return [
     'dpt'       => 'electors/index',
     'suara masuk' => 'voting/index',
     'pengaduan' => 'complaints/index',
+    'laporan'   => 'report/index',
     'pengguna'  => [
         'semua pengguna' => 'users/index',
         'roles' => 'roles/index'
